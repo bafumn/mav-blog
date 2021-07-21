@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::group(['middleware' => 'auth'], function() {
-    Route::get('/', "HomeController@index")->name('home')->middleware('auth');
-    Route::resource('/articles', "ArticleController")->middleware('auth');
+Route::group(['middleware' => ['auth', 'verified']], function() {
+    Route::get('/', "HomeController@index")->name('home');
+    Route::resource('/articles', "ArticleController");
 });
