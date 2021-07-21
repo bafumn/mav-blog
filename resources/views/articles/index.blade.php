@@ -9,18 +9,19 @@
                 <div class="card my-4">
                     <h5 class="card-header">Filter</h5>
                     <div class="card-body">
-                        <form action="">
+                        <form class="form-vv" action="{{ route('articles.index') }}" method="get">
                             <p>Category</p>
-                            <select class="form-control">
-                                <option value="one">One</option>
-                                <option value="two">Two</option>
+                            <select class="form-control" id="cat_id" name="category_id" >
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
                             </select>
                             <p class="mt-2">Date</p>
-                            <select class="form-control">
-                                <option value="one">Latest</option>
-                                <option value="two">Newest</option>
+                            <select class="form-control" id="order_by" name="order_by">
+                                <option value="DESC">Latest</option>
+                                <option value="ASC">Newest</option>
                             </select>
-                            <button type="button" class="btn btn-dark btn-block mt-4">Dark</button>
+                            <button type="submit" class="btn btn-dark btn-block mt-4">Result</button>
                         </form>
                     </div>
                 </div>
@@ -29,8 +30,9 @@
                 <h1 class="my-4">
                     <small>Newest Posts</small>
                 </h1>
-                @include('includes/articles')
-                {{ $articles->links() }}
+                <div class="articles">
+                    @include('includes/articles')
+                </div>
             </div>
         </div>
     </div>

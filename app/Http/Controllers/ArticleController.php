@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Filters\ArticleFilter;
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -12,10 +14,15 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(ArticleFilter $request)
     {
-        $articles = Article::paginate(4);
-        return view('articles/index', compact('articles'));
+        $articles = Article::filter($request)->paginate(4);
+        $categories = Category::where('count', '>', 0)->get();
+        if($request->request->ajax()){
+            return view('includes.articles',compact('articles'))->render();
+        }
+
+        return view('articles/index', compact('articles', 'categories'));
     }
 
     /**

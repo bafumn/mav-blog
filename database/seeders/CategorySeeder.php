@@ -16,8 +16,8 @@ class CategorySeeder extends Seeder
     {
         for ($i = 0; $i < 5; $i++) {
             DB::table('categories')->insert([
-                'name' => 'Category name',
-                'id' => rand(0, 5)
+                'name' => 'Category ' . $i,
+                'count' => '1'
             ]);
         }
     }
