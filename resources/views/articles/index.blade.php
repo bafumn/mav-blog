@@ -30,6 +30,7 @@
                     <small>Newest Posts</small>
                 </h1>
                 @include('includes/articles')
+                {{ $articles->links() }}
             </div>
         </div>
     </div>
