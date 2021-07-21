@@ -25,6 +25,9 @@
                     <a class="nav-link" href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('articles.create') }}">Create acricle</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('articles.index') }}">Articles</a>
                 </li>
                 <li class="nav-item dropdown">
@@ -32,7 +35,7 @@
                         {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href=""> Profile</a>
+                        <a class="dropdown-item" href="{{ route('users.edit', Auth::user()->id) }}"> Profile</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                                                              document.getElementById('logout-form').submit();">
