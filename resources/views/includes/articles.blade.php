@@ -1,6 +1,8 @@
 @foreach($articles as $article)
     <div class="card mb-4">
-{{--        <img class="card-img-top img-fluid" src="/">--}}
+        @isset($article->image)
+            <img class="card-img-top img-fluid" src="{{ asset('storage/' . $article->image->path) }}">
+        @endisset
         <div class="card-body">
             <h2 class="card-title">{{ $article->name }}</h2>
             <p class="card-text">{{ $article->description }}</p>

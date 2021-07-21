@@ -27,10 +27,7 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <h1 class="my-4">
-                    <small>Newest Posts</small>
-                </h1>
-                <div class="articles">
+                <div class="articles my-4">
                     @include('includes/articles')
                 </div>
             </div>

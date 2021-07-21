@@ -14,7 +14,7 @@
                         <div class="col-md-4">
                             <div class="card mb-4 box-shadow">
                                 @isset($article->image)
-                                    <img class="card-img-top" data-src="" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="" data-holder-rendered="true">
+                                    <img class="card-img-top" data-src="" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="{{ asset('storage/' . $article->image->path) }}" data-holder-rendered="true">
                                 @endisset
                                 <div class="card-body">
                                     <a href="{{ route('articles.show', $article->id) }}"><p class="card-text">{{ $article->name }}</p></a>
